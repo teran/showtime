@@ -17,6 +17,7 @@ os.environ.setdefault("DJANGO_SETTINGS_MODULE", "showtime.settings")
 
 from django.conf import settings
 from django.template.defaultfilters import slugify
+from django.utils import timezone
 
 from core.models import Cover, Episode, Genre, Hardlink, Inode, Season, TVShow
 
@@ -106,7 +107,7 @@ if __name__ == "__main__":
             if episode_created:
                 episode.save()
 
-    hardlinks = Hardlink.objects.filter(created__lt = (datetime.datetime.now() - datetime.timedelta(minutes = 10)))
+    hardlinks = Hardlink.objects.filter(created__lt=(timezone.now() - datetime.timedelta(hours=2)))
     for hardlink in hardlinks:
         os.unlink('%s/%s.m4v' % (settings.MEDIAFILES_HARDLINKS, hardlink.token))
         hardlink.delete()

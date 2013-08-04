@@ -1,0 +1,32 @@
+.breadcrumb {
+    background-color: #222222;
+}
+.breadcrumb a {
+    color: #999999;
+    text-shadow: none;
+}
+.content {
+    padding-top: 80px;
+}
+.cover {
+    width: 90%;
+}
+.item {
+    padding: 5px;
+    text-align: center;
+}
+#player {
+    width: 840px;
+    height: 472px;
+    margin: 0 auto;
+    position: relative;
+}
+.player-frame {
+    text-align: center;
+    margin: 0px;
+    padding: 0px;
+}
+.player-meta {
+    padding-top: 20px;
+    text-align: right;
+}

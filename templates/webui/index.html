@@ -1,0 +1,21 @@
+{% extends 'webui/base.html' %}
+
+{% block content %}
+        <div>
+            {% for genre in genres %}
+            <div>
+                <div class="span10"><h2>{{ genre }} <a href="#">&gt;&gt;</a></h2></div>
+                <div class="span10 row">
+                    {% for tvshow in genre.tvshows.all %}
+                    <div class="item span2">
+                        <a class="item-link" id="{{ forloop.counter }}" href="/tvshow/{{ tvshow.pk }}.html">
+                            <div class="item-cover"><img class="reflect rheight33" src="/static/covers/{{ tvshow.cover }}-preview.jpg" /></div>
+                            <div class="item-title">{{ tvshow.title }}</div>
+                        </a>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+{% endblock %}

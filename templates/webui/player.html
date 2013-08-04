@@ -1,0 +1,33 @@
+{% extends 'webui/base.html' %}
+
+{% block title %} {{ object.tvshow }} | {{ object }}{% endblock %}
+
+{% block content %}
+        <div class="span11">
+            <ul class="breadcrumb">
+                <li><a href="/genre/{{ object.tvshow.genre.pk }}.html">{{ object.tvshow.genre }}</a> <span class="divider">/</span></li>
+                <li><a href="/tvshow/{{ object.tvshow.pk }}.html">{{ object.tvshow }}</a> <span class="divider">/</span></li>
+                <li><a href="/season/{{ object.season.pk }}.html">Season {{ object.season }}</a> <span class="divider">/</span></li>
+                <li><a class="active" href="/tvshow/{{ object.tvshow.pk }}/{{ object.pk }}.html">s{{ object.season }}e{{ object.episode }} - {{ object.title }}</a></li>
+            </ul>
+            <div class="player-frame">
+               <div class="player" id="player">Loading the player...</div>
+               <div class="player-meta"></div>
+            </div>
+            <script type="text/javascript">
+                $.getJSON('/api/hardlink.json?object={{ object.inode }}')
+                        .done(function(data) {
+                            jwplayer("player").setup({
+                                file: '/static/mediafiles/'+data.token+'.m4v',
+                                image: "/static/covers/{{ object.cover }}.jpg",
+                                width: 840,
+                                height: 472,
+                                autostart: true
+                            });
+                        })
+                        .fail(function() {
+                            $('#player-window').html('Error loading data. Try to reload this page')
+                        })
+            </script>
+        </div>
+{% endblock %}

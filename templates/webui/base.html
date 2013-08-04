@@ -1,0 +1,44 @@
+{% load staticfiles %}<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+        <script src="{% static 'js/jquery.js' %}"></script>
+        
+        <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
+        <script src="{% static 'js/bootstrap.min.js' %}"></script>
+        <script src="{% static 'js/bootstrap-modal.js' %}"></script>
+        
+        <script type="text/javascript" src="{% static 'js/jwplayer.js' %}"></script>
+        
+        <script type="text/javascript" src="{% static 'js/handler.js' %}"></script>
+        <link rel="stylesheet" href="{% static 'css/common.css' %}" />
+
+        <script type="text/javascript" src="{% static 'js/reflection.js' %}"></script>
+
+        <title>ShowTime |{% block title %}{% endblock %}</title>
+    </head>
+    <body>
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="brand" href="https://github.com/teran/showtime">ShowTime</a>
+                    <div class="nav-collapse collapse">
+                        <ul class="nav">
+                            <li class=""><a href="/">Home</a></li>
+                            <li class=""><a href="/transmission/web/">Transmission</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="content container">
+{% block content %}{% endblock %}
+        </div>
+    </body>
+</html>

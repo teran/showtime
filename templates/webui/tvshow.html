@@ -1,6 +1,6 @@
 {% extends 'webui/base.html' %}
 
-{% block title %} {{ tvshow }}{% endblock %}
+{% block title %} | {{ tvshow }}{% endblock %}
 
 {% block content %}
         <div class="span11">
@@ -8,7 +8,7 @@
             <div class="span11 row">
                 <h2 name="s{{ season.season }}" id="s{{ season.season }}">Season {{ season.season }}</h2>
                 {% for episode in season.sorted_episodes %}
-                <div class="item span2" id="item{{ forloop.counter }}">
+                <div class="season-episodes item span2" id="item{{ forloop.counter }}">
                     <a class="item-link" id="{{ forloop.counter }}" href="/tvshow/{{ tvshow.pk }}/{{ episode.pk }}.html">
                         <div class="item-cover"><img class="reflect rheight33" src="/static/covers/{{ episode.cover }}-preview.jpg" /></div>
                         <div class="item-title">{{ episode.episode }}. {{ episode.title }}</div>

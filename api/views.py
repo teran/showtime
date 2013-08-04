@@ -8,12 +8,14 @@ import re
 import json
 
 from django.conf import settings
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render_to_response
 from django.http import HttpResponse, HttpResponseBadRequest, HttpResponseNotFound
 
 from core.models import Cover, Episode, Genre, Hardlink, Inode, Season, TVShow
 
 
+@login_required
 def hardlink(request):
     try:
         inode_id = int(request.GET['object'])

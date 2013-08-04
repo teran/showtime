@@ -15,13 +15,12 @@ urlpatterns = patterns('',
     # Uncomment the next line to enable the admin:
     # url(r'^admin/', include(admin.site.urls)),
     (r'^$', 'webui.views.index'),
+    (r'^tvshows.html$', 'webui.views.tvshows'),
     (r'^genre/(?P<genre>[0-9]+).html$', 'webui.views.genre'),
     (r'^tvshow/(?P<tvshow>[0-9]+).html$', 'webui.views.tvshow'),
     (r'^tvshow/(?P<tvshow>[0-9]+)/(?P<episode>[0-9]+).html$', 'webui.views.episode'),
-    (r'^movies.html$', 'webui.views.movies'),
-    (r'movie/(?P<id>[0-9]).html$', 'webui.views.movie'),
+    #(r'^movies.html$', 'webui.views.movies'),
+    #(r'^movie/(?P<id>[0-9]).html$', 'webui.views.movie'),
 
     (r'^api/hardlink.json$', 'api.views.hardlink'),
-    (r'^api/playlist.qtl$', 'api.views.qt_playlist'),
-    (r'^api/playlist.m3u$', 'api.views.m3u_playlist'),
 )

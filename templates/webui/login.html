@@ -1,0 +1,41 @@
+{% extends 'webui/base.html' %}
+
+{% block title %} | Login{% endblock %}
+
+{% block content %}
+        <div class="span11">
+            {% if error == 'inactive' %}
+            <div class="notifications alert alert-error">
+                Inactive user account
+            </div>
+            {% endif %}
+            {% if error == 'wrongpass' %}
+            <div class="notifications alert alert-error">
+                Invalid user name or password
+            </div>
+            {% endif %}
+            <form class="form-horizontal" action="/" method="post">
+                {% csrf_token %}
+                <div class="control-group">
+                    <label class="control-label" for="inputLogin">Login</label>
+                    <div class="controls">
+                        <input type="text" id="inputUsername" name="username" placeholder="Login">
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="inputPassword">Password</label>
+                    <div class="controls">
+                        <input type="password" id="inputPassword" name="password" placeholder="Password">
+                    </div>
+                </div>
+                <div class="control-group">
+                    <div class="controls">
+                        <label class="checkbox">
+                            <input type="checkbox"> Remember me
+                        </label>
+                        <button type="submit" class="btn">Sign in</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+{% endblock %}

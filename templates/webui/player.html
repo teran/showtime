@@ -7,7 +7,7 @@
             <ul class="breadcrumb">
                 <li><a href="/genre/{{ object.tvshow.genre.pk }}.html">{{ object.tvshow.genre }}</a> <span class="divider">/</span></li>
                 <li><a href="/tvshow/{{ object.tvshow.pk }}.html">{{ object.tvshow }}</a> <span class="divider">/</span></li>
-                <li><a href="/season/{{ object.season.pk }}.html">Season {{ object.season }}</a> <span class="divider">/</span></li>
+                <li><a href="/tvshow/{{ object.tvshow.pk }}.html#s{{ object.season }}">Season {{ object.season }}</a> <span class="divider">/</span></li>
                 <li><a class="active" href="/tvshow/{{ object.tvshow.pk }}/{{ object.pk }}.html">s{{ object.season }}e{{ object.episode }} - {{ object.title }}</a></li>
             </ul>
             <div class="player-frame">

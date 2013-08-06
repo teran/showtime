@@ -4,7 +4,7 @@
         <div>
             {% for genre in genres %}
             <div>
-                <div class="span10"><h2>{{ genre }} <a href="#">&gt;&gt;</a></h2></div>
+                <div class="span10"><h2>{{ genre }}</h2></div>
                 <div class="span10 row">
                     {% for tvshow in genre.tvshows.all %}
                     <div class="item span2">
